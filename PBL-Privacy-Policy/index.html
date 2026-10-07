@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Porky Byte Locker (PBL) Privacy Policy</title>
+  <style>
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; max-width: 840px; margin: 40px auto; padding: 0 20px; color: #1f2937; }
+    h1, h2 { line-height: 1.25; color: #111827; }
+    .meta { color: #6b7280; }
+    code { background: #f3f4f6; padding: 0.1em 0.3em; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Porky Byte Locker (PBL) Privacy Policy</h1>
+  <p class="meta">Effective date: October 7, 2026</p>
+
+  <p>This privacy policy applies to <strong>Porky Byte Locker (PBL)</strong> (package <code>com.porkybyte.locker</code>), published by <strong>Porky Byte</strong>. Privacy questions can be sent to <strong>porkybyte@gmail.com</strong>.</p>
+
+  <h2>Overview</h2>
+  <p>PBL is an Android application for storing private photos and videos in encrypted app-private storage. It also includes local file-management tools, encrypted backup and restore, an optional Calculator + Converter disguise mode, and an optional user-initiated media downloader.</p>
+  <p>The current version does not use a Porky Byte account, Porky Byte cloud-storage backend, analytics service, advertising SDK, third-party crash-reporting service, or developer-operated telemetry service.</p>
+  <p>Some features communicate directly with third-party services selected or requested by the user. Those cases are described below.</p>
+
+  <h2>Information stored on your device</h2>
+  <p>PBL may store the following information locally on your device:</p>
+  <ul>
+    <li>photos and videos imported into the Locker, stored in encrypted PBL containers;</li>
+    <li>filenames, media type, size, folder structure, timestamps, Trash state, and integrity metadata;</li>
+    <li>a salted cryptographic verifier for your Locker PIN and retry-throttling state;</li>
+    <li>settings such as language, disguise-mode state, and the selected disguise trigger;</li>
+    <li>downloader job information such as the URL you submitted, progress, status, and a bounded error message while the job is being processed or retained for recovery;</li>
+    <li>source references required to complete or recover an import cleanup operation.</li>
+  </ul>
+  <p>PBL does not intentionally store your Locker PIN in plaintext.</p>
+
+  <h2>Encryption and device security</h2>
+  <p>Locker media is stored in app-private encrypted containers. The current media-key implementation uses Android Keystore for the device-bound encryption key.</p>
+  <p>Portable PBL backups use a separate recovery passphrase. Backup contents are encrypted and authenticated before they are written to the destination you choose.</p>
+  <p>Release 1 uses PIN-only Locker authentication and does not request biometric authentication. If a later release enables biometric unlock, this policy will be reviewed and updated before that release is published.</p>
+  <p>No security mechanism can guarantee absolute protection. Device compromise, operating-system vulnerabilities, weak user-selected credentials, or disclosure of a recovery passphrase can reduce the protection provided by the app.</p>
+
+  <h2>Media import and deletion of originals</h2>
+  <p>When you choose media to move into the Locker, PBL encrypts and verifies the Locker copy before attempting to remove the original external file.</p>
+  <p>Android or the external storage provider may require additional confirmation before deletion. If deletion cannot be confirmed safely, PBL keeps the cleanup operation pending instead of claiming that the original was removed.</p>
+
+  <h2>Backup and restore</h2>
+  <p>When you create a portable backup, PBL encrypts the backup and writes it to the Android document destination you select.</p>
+  <p>The selected destination may be local storage or a third-party/cloud DocumentsProvider. If you choose a cloud provider, that provider receives the encrypted backup file and its own privacy policy and retention rules apply.</p>
+  <p>PBL does not upload portable backups to a Porky Byte server in the current version.</p>
+
+  <h2>Export copy and Move out</h2>
+  <p>When you explicitly choose Export copy or Move out, PBL decrypts the selected Locker media and writes the resulting media to the Android destination you choose.</p>
+  <p>If the selected destination is a cloud or third-party provider, that provider receives the decrypted media you chose to export. The provider's privacy policy and retention rules apply to that copy.</p>
+
+  <h2>Downloader and third-party websites</h2>
+  <p>The optional downloader runs only after you submit a media link or otherwise explicitly start a download.</p>
+  <p>To resolve and retrieve the requested media, PBL may contact the website from the URL you provided and related media or content-delivery hosts. Those third-party services receive the network request and may receive standard request information such as your network address, request headers, and site-provided cookies required for the requested transfer.</p>
+  <p>PBL may store the submitted URL and download job status locally so an interrupted transfer can be recovered safely. This local job table is operational state and is not intended to be a permanent browsing-history feature.</p>
+  <p>PBL does not route downloader requests through a Porky Byte proxy or developer-operated backend in the current version.</p>
+  <p>Third-party websites have their own terms and privacy practices. You are responsible for using the downloader only for content you are authorized to access and save.</p>
+
+  <h2>Calculator + Converter disguise mode</h2>
+  <p>The optional Calculator + Converter disguise is a local launcher and user-interface mode. It does not create a separate online identity and does not change the network or data-handling behavior described in this policy.</p>
+  <p>The calculator and unit-converter functions operate locally in the current version.</p>
+
+  <h2>Analytics, advertising, and crash reporting</h2>
+  <p>The current reviewed build does not include an advertising SDK, analytics SDK, or third-party crash-reporting SDK.</p>
+  <p>If a future release adds any of those services, this policy and the Google Play Data Safety disclosure will be updated before that release is published.</p>
+
+  <h2>Android permissions</h2>
+  <p>PBL currently requests only permissions required for its implemented Release 1 functions, including Internet access, foreground data-transfer service support, and notifications where applicable. Release 1 does not request Android biometric permission.</p>
+  <p>The current app does not request Android <code>MANAGE_EXTERNAL_STORAGE</code> or broad <code>READ_MEDIA_IMAGES</code> / <code>READ_MEDIA_VIDEO</code> access. User-selected media and destinations are handled through Android picker/provider APIs where possible.</p>
+
+  <h2>Android system backup</h2>
+  <p>PBL disables normal Android backup/device-transfer of its private Locker application data. Portable PBL backup is the supported application-level recovery path for Locker contents in the current design.</p>
+
+  <h2>Data retention and deletion</h2>
+  <p>You can remove Locker items using the app's Trash and permanent-delete functions. Clearing the app's data or uninstalling the app removes app-private PBL data from the device subject to Android's storage behavior.</p>
+  <p>Copies you previously exported, moved out, or stored in an external/cloud provider are controlled by that destination and are not automatically deleted when you remove the corresponding Locker item.</p>
+  <p>Portable backup files are also controlled by the location/provider where you saved them.</p>
+
+  <h2>Children and sensitive content</h2>
+  <p>PBL is a general-purpose private media utility and is not designed to collect personal information from children through a Porky Byte online service. Any future change to the app's target audience, advertising, accounts, or cloud services requires a separate policy review.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>This policy may be updated when PBL features, bundled SDKs, network behavior, or legal/Google Play requirements change. The effective date will be updated when the published policy changes materially.</p>
+
+  <h2>Contact</h2>
+  <p>Developer / publisher: <strong>Porky Byte</strong><br>
+  Privacy contact: <strong>porkybyte@gmail.com</strong></p>
+</body>
+</html>
